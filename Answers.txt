@@ -1,4 +1,56 @@
 • What is a gitignore file and what should it include for a Java project?
+- gitignore is used to ignore certain files and directories while doing a git
+  commit. Also, when we do git status, we want the relevant files to be shown
+  rather than the unwanted ones.
+  Unwanted files include temporary files, config files, hidden files like
+  .DS_store even compiled files and output directories. These are some
+  files/folders which we don't want the git to check in to. Therefore, we add it
+  to .gitignore file.  Files added to gitignore is ignored by git while performing
+  any git command. Sometimes, we also don't want to modify few files in git. For
+  such files, we add it to .gitignore after pushing it to the repo.
+
+  In a Java project, gitignore should include the following files:
+  • log files (*.log)
+  • compiled class files (*.class)
+  • package files (*.jar, *.war, *.ear)
+  • VM crash logs
+  • cache Files
+  • hidden system files (metadata files like .DS_Store or thumbnails)
+  • BlueJ files (*.ctxt)
+  • mobile tools for java (.mtj.tmp/)
+
+
 • What does fast-forward in Git mean?
+- Fast-forward in Git means that git was able to update the branch by just moving
+  the pointer without doing any merges. Suppose, a new branch was created from
+  master and several commits were done in it. Since, the master had no new
+  commits, it didn't diverge from the new branch. So while merging the new branch
+  to master, instead of creating a commit, git will directly move the pointer on
+  master to the latest commit. This is called fast-forward merge.
+
 • Why should you have different branches?
+- Branches are made for multitasking. Suppose there are several developers working
+  on the project. If they work on a single branch, while pushing there changes
+  they will encounter many merge conflicts as others might have done some changes
+  where the one is going to push. In order to avoid such thing, it is advisable to
+  work on separate child branches(feature/developer branch). Even if some task is
+  being done and in future it is not required or is required after some sprints.
+  In this situation, if only one branch is being used then we have to revert it.
+  Our complete code will be gone. But if we use a separate branch, we can keep it
+  for future use.
+
 • In a project how many remote Git repositories do you usually have?
+- In general people keep one repository for a project , but we can have multiple.
+  I have worked in projects with multiple interdependent/related projects repos.
+  e.g., if an iOS application project is happening which requires multiple
+  technologies like native iOS, react-native project, UI/UX components. All these
+  can be added to one project. Though it will increase the project size but it
+  will be accessible to all the team members. So when an iOS developer needs the
+  react-native component he can just pull the changes from react repo and update
+  his project. In this he will be able to know the changes if the related repos
+  and if required can do changes to it. Another solution to this is orphaned
+  branches.
+
+  (Note: This is only for those projects which are interdependent/related. For
+  rest projects which are not related, one should create individual repos for
+  better maintainability)
